@@ -4,7 +4,7 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
 @Service//para dcirle q es un componente inyectable de spring
-public class AiServiceImpl implements AiServices{
+public class AiServiceImpl implements AiService {
 
     private final ChatClient chatClient;
 
@@ -13,10 +13,11 @@ public class AiServiceImpl implements AiServices{
     }
 
     @Override
-    public String greeting() {
+    public String greeting(String name) {
         return this.chatClient
                 .prompt()
-                .user("Dime Hola Mundo en ingles en una sola linea ")
+                .system("Response siempre en ingles y en una sola linea ")
+                .user("Dime Hola Mundo con mi nombre: %s".formatted(name))
                 .call() //this is like send, is async
                 .content();
     }
