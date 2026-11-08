@@ -21,4 +21,13 @@ public class AiServiceImpl implements AiService {
                 .call() //this is like send, is async
                 .content();
     }
+
+    @Override
+    public String chat(String prompt) {
+        return this.chatClient
+                .prompt()
+                .user(prompt)
+                .call() //this is like send, is async
+                .content();
+    }
 }
