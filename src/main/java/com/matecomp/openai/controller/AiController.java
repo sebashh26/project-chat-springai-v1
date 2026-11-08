@@ -19,4 +19,9 @@ public class AiController {
     public String chat(@RequestBody String prompt) {
         return aiServices.chat(prompt);
     }
+
+    @PostMapping("/chat-expert")
+    public String chatExpert(@RequestBody String prompt) {
+        return aiServices.chatExpertSpring(prompt);
+    }
 }

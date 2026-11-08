@@ -6,4 +6,6 @@ public interface AiService {
 
     String chat (String prompt);
 
+    String chatExpertSpring(String prompt);
+
 }
