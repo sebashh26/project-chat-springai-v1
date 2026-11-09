@@ -1,5 +1,7 @@
 package com.matecomp.openai.controller;
 
+import com.matecomp.openai.model.CodeDTO;
+import com.matecomp.openai.model.Requirement;
 import com.matecomp.openai.services.AiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +25,10 @@ public class AiController {
     @PostMapping("/chat-expert")
     public String chatExpert(@RequestBody String prompt) {
         return aiServices.chatExpertSpring(prompt);
+    }
+
+    @PostMapping("/generate-code")
+    public CodeDTO generateBody(@RequestBody Requirement  requirement) {
+        return aiServices.generateCode(requirement);
     }
 }

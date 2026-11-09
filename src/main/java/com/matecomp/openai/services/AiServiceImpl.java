@@ -1,5 +1,7 @@
 package com.matecomp.openai.services;
 
+import com.matecomp.openai.model.CodeDTO;
+import com.matecomp.openai.model.Requirement;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +41,17 @@ public class AiServiceImpl implements AiService {
                 .user(prompt)
                 .call()
                 .content();
+    }
+
+    @Override
+    public CodeDTO generateCode(Requirement request) {
+        String code= chatClient
+                .prompt()
+                .system("Eres un dasarrolador senior experto en java con spring boot con buenas practicas, una pregunta debe ester relacionada si y solo si  a java con spring boot  otra no relacionada diles que no sabes")
+                .user(request.requirement())
+                .call()
+                .content();
+
+        return new CodeDTO(code);
     }
 }
