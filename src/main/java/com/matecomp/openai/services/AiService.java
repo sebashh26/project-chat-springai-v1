@@ -13,6 +13,8 @@ public interface AiService {
 
     CodeDTO generateCode  (Requirement request);
 
+    String explain(String code);
+
 
 
 }

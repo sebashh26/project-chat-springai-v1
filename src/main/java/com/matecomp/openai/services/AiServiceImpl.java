@@ -3,7 +3,10 @@ package com.matecomp.openai.services;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service//para dcirle q es un componente inyectable de spring
 public class AiServiceImpl implements AiService {
@@ -47,11 +50,30 @@ public class AiServiceImpl implements AiService {
     public CodeDTO generateCode(Requirement request) {
         String code= chatClient
                 .prompt()
-                .system("Eres un dasarrolador senior experto en java con spring boot con buenas practicas, una pregunta debe ester relacionada si y solo si  a java con spring boot  otra no relacionada diles que no sabes")
+                .system("""
+                        Eres un dasarrolador senior experto en java con spring boot.
+                        Con buenas practicas.
+                        Una pregunta debe ester relacionada si y solo si  a java con spring boot.
+                        Otra no relacionada diles que no sabes
+                        """)
                 .user(request.requirement())
                 .call()
                 .content();
 
         return new CodeDTO(code);
+    }
+
+    @Override
+    public String explain(String code) {
+        PromptTemplate promptTemplate = new PromptTemplate("Explica el codigo linea por linea: {code}");
+        String userPrompt = promptTemplate.render(Map.of("code",code));
+        return chatClient.prompt()
+                .system("""
+                        Eres un profesor experto en programacion
+                        Explica paso a paso de forma sencilla.""")
+                //.user("Explica el codigo linea por linea: %s".formatted(code))//sin template
+                .user(userPrompt)
+                .call()
+                .content();
     }
 }

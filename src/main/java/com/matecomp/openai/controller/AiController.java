@@ -31,4 +31,9 @@ public class AiController {
     public CodeDTO generateBody(@RequestBody Requirement  requirement) {
         return aiServices.generateCode(requirement);
     }
+
+    @PostMapping("/explain-code")
+    public String generateBody(@RequestBody String code) {
+        return aiServices.explain(code);
+    }
 }
