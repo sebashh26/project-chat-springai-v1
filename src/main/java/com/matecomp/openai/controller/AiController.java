@@ -41,4 +41,9 @@ public class AiController {
     public String chatFormat(@RequestBody String prompt) {
         return aiServices.chatFormat(prompt);
     }
+
+    @PostMapping("/analize")
+    public  String analize(@RequestBody String text) {
+        return aiServices.analyze(text);
+    }
 }

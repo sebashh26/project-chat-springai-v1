@@ -91,4 +91,25 @@ public class AiServiceImpl implements AiService {
                 .call()
                 .content();
     }
+
+    @Override
+    public String analyze(String text) {
+        return chatClient
+                .prompt()
+                .system("""
+                        Eres un experto en analisis de texto.
+                        Resumen el texto en 3 puntos clave:
+                        Devuelve solo json valido.
+                        Formato exacto:
+                        {
+                            "summary":"string",
+                            "key_points": ["string","string","string"],
+                            "sentiment": "positivo|neutral|negative"
+                        }
+                        """)
+                .user(text)
+                .call().content();
+    }
+
+
 }
