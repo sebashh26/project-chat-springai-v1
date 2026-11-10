@@ -36,4 +36,9 @@ public class AiController {
     public String generateBody(@RequestBody String code) {
         return aiServices.explain(code);
     }
+
+    @PostMapping("/chat-format")
+    public String chatFormat(@RequestBody String prompt) {
+        return aiServices.chatFormat(prompt);
+    }
 }

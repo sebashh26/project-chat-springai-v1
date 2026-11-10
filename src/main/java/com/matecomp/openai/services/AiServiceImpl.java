@@ -76,4 +76,19 @@ public class AiServiceImpl implements AiService {
                 .call()
                 .content();
     }
+
+    @Override
+    public String chatFormat(String topic) {
+        return chatClient.prompt()
+                .system("""
+                        Eres un experto de tecnologia .
+                        Responde usando:
+                        - titulo
+                        - lista de 3 puntos importantes
+                        - un ejemplo practico al final de la explicacion
+                        """)
+                .user(topic)
+                .call()
+                .content();
+    }
 }
