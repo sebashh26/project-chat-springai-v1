@@ -111,5 +111,26 @@ public class AiServiceImpl implements AiService {
                 .call().content();
     }
 
+    @Override
+    public String cityInfo(String info) {
+        return chatClient
+                .prompt()
+                .system("""
+                        Eres un asistente experto en geografía.
+                        Responde solo con la informacion correcta y en formato json.
+                        """)
+                .user("""
+                        Devuelve la informacion en español de la ciudad %s con este formato
+                        {
+                            "city":"string",
+                            "country":"string",
+                            "population":number,
+                            "description":"string"
+                        }
+                        """.formatted(info))
+                .call()
+                .content();
+    }
+
 
 }

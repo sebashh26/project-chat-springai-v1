@@ -46,4 +46,9 @@ public class AiController {
     public  String analize(@RequestBody String text) {
         return aiServices.analyze(text);
     }
+
+    @GetMapping("/city-info")
+    public String cityInfo(@RequestParam String info) {
+        return  aiServices.cityInfo(info);
+    }
 }
