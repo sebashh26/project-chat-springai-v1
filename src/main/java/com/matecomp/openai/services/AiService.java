@@ -3,6 +3,7 @@ package com.matecomp.openai.services;
 import com.matecomp.openai.model.CityInfo;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
+import com.matecomp.openai.model.TicketClasification;
 
 public interface AiService {
 
@@ -21,6 +22,8 @@ public interface AiService {
     String analyze(String text);
 
     CityInfo cityInfo(String info);
+
+    TicketClasification clasifyType(String text);
 
 
 

@@ -3,6 +3,7 @@ package com.matecomp.openai.services;
 import com.matecomp.openai.model.CityInfo;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
+import com.matecomp.openai.model.TicketClasification;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Service;
@@ -131,6 +132,35 @@ public class AiServiceImpl implements AiService {
                         """.formatted(info))
                 .call()
                 .entity(CityInfo.class);
+    }
+
+    @Override
+    public TicketClasification clasifyType(String text) {
+        return chatClient
+                .prompt()
+                .system("""
+                        Eeres un sistema de clasificacion de ticket.
+                        Response solo en json valido.
+                        """)
+                .user("""
+                        Clasifica el siguiente tesxto en una categoria y prioridad.
+                        Categorias:
+                        -Soporte
+                        -Ventas
+                        -Reclamo
+                        
+                        Formato:
+                        {
+                            "category": "string",
+                            "reason": "string",
+                            "priority": number
+                        }
+                        
+                        Texto:
+                        %s
+                        """.formatted(text))
+                .call()
+                .entity(TicketClasification.class);
     }
 
 
