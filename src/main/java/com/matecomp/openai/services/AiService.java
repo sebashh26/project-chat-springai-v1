@@ -1,5 +1,6 @@
 package com.matecomp.openai.services;
 
+import com.matecomp.openai.model.CityInfo;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
 
@@ -19,7 +20,7 @@ public interface AiService {
 
     String analyze(String text);
 
-    String cityInfo(String info);
+    CityInfo cityInfo(String info);
 
 
 

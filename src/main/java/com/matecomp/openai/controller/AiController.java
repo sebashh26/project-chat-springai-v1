@@ -1,5 +1,6 @@
 package com.matecomp.openai.controller;
 
+import com.matecomp.openai.model.CityInfo;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
 import com.matecomp.openai.services.AiService;
@@ -48,7 +49,7 @@ public class AiController {
     }
 
     @GetMapping("/city-info")
-    public String cityInfo(@RequestParam String info) {
+    public CityInfo cityInfo(@RequestParam String info) {
         return  aiServices.cityInfo(info);
     }
 }

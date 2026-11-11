@@ -1,5 +1,6 @@
 package com.matecomp.openai.services;
 
+import com.matecomp.openai.model.CityInfo;
 import com.matecomp.openai.model.CodeDTO;
 import com.matecomp.openai.model.Requirement;
 import org.springframework.ai.chat.client.ChatClient;
@@ -112,7 +113,7 @@ public class AiServiceImpl implements AiService {
     }
 
     @Override
-    public String cityInfo(String info) {
+    public CityInfo cityInfo(String info) {
         return chatClient
                 .prompt()
                 .system("""
@@ -129,7 +130,7 @@ public class AiServiceImpl implements AiService {
                         }
                         """.formatted(info))
                 .call()
-                .content();
+                .entity(CityInfo.class);
     }
 
 
