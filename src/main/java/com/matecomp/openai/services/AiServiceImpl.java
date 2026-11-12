@@ -1,9 +1,6 @@
 package com.matecomp.openai.services;
 
-import com.matecomp.openai.model.CityInfo;
-import com.matecomp.openai.model.CodeDTO;
-import com.matecomp.openai.model.Requirement;
-import com.matecomp.openai.model.TicketClasification;
+import com.matecomp.openai.model.*;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Service;
@@ -161,6 +158,32 @@ public class AiServiceImpl implements AiService {
                         """.formatted(text))
                 .call()
                 .entity(TicketClasification.class);
+    }
+
+    @Override
+    public CodeGeneration generateCodeType(String requirement) {
+        CodeGeneration response =  chatClient
+                .prompt()
+                .system("""
+                        Eres un desarrollador experto y senior en java spring boot.
+                        Genera una solucion limpia y con buena practicas.
+                        Devuelve solo JSON valido.
+                        No uses markdown.
+                        Ni pongas ``` java sin ``` json.
+                        Con le formato exacto del json:
+                        {
+                            "requirement":"string",
+                            "summary":"string",
+                            "code":"string",
+                            "notes":["string","string"]
+                        }
+                        """)
+                .user(requirement)
+                .call()
+                .entity(CodeGeneration.class);
+        //System.out.println(response.getResult().getMetadata().getFinishReason());
+        //System.out.println(response.getResult().getOutput().getText());
+        return response;
     }
 
 

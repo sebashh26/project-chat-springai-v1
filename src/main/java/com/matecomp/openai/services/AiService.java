@@ -1,9 +1,7 @@
 package com.matecomp.openai.services;
 
-import com.matecomp.openai.model.CityInfo;
-import com.matecomp.openai.model.CodeDTO;
-import com.matecomp.openai.model.Requirement;
-import com.matecomp.openai.model.TicketClasification;
+import com.matecomp.openai.model.*;
+import org.springframework.cglib.core.CodeGenerationException;
 
 public interface AiService {
 
@@ -24,6 +22,8 @@ public interface AiService {
     CityInfo cityInfo(String info);
 
     TicketClasification clasifyType(String text);
+
+    CodeGeneration generateCodeType(String requirement);
 
 
 
