@@ -60,4 +60,9 @@ public class AiController {
     public CodeGeneration generateCodeJson(@RequestBody String prompt) {
         return aiServices.generateCodeType(prompt);
     }
+
+    @PostMapping("/explain-code-json")
+    public CodeExplanation codeExplanation(@RequestBody String prompt) {
+        return aiServices.explainCodeTyped(prompt);
+    }
 }

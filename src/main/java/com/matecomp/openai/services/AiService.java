@@ -25,6 +25,6 @@ public interface AiService {
 
     CodeGeneration generateCodeType(String requirement);
 
-
+    CodeExplanation explainCodeTyped(String code);
 
 }

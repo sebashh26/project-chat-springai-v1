@@ -186,5 +186,31 @@ public class AiServiceImpl implements AiService {
         return response;
     }
 
+    @Override
+    public CodeExplanation explainCodeTyped(String code) {
+        return chatClient
+                .prompt()
+                .system("""
+                        Eres un profesor experto en programacion.
+                        Explica el codigo en ingles de forma simple paso a paso y line por linea.
+                        Devuelve solo el json valido.
+                        No uses markdown.
+                        {
+                            "language":"string",
+                            "summary":"string",
+                            "line_by_line":[
+                                {
+                                    "line": number,
+                                    "explanation": "string"
+                                }
+                            ],
+                            "final_explanation":"string"
+                        }
+                        """)
+                .user(code)
+                .call()
+                .entity(CodeExplanation.class);
+    }
+
 
 }
