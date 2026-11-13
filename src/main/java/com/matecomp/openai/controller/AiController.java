@@ -65,4 +65,9 @@ public class AiController {
     public CodeExplanation codeExplanation(@RequestBody String prompt) {
         return aiServices.explainCodeTyped(prompt);
     }
+
+    @PostMapping("/expert-architect-json")
+    public ArchitectEntity expertArchitect(@RequestBody String prompt) {
+        return  aiServices.expertArchitectTyped(prompt);
+    }
 }

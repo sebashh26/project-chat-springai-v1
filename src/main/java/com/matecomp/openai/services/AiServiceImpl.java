@@ -212,5 +212,27 @@ public class AiServiceImpl implements AiService {
                 .entity(CodeExplanation.class);
     }
 
+    @Override
+    public ArchitectEntity expertArchitectTyped(String prompt) {
+        return chatClient
+                .prompt()
+                .system("""
+                        Eres un experto de software en microservcios, spring boot y arquitectura de sistemas.
+                        Devuelve solo el json valido.
+                        No uses markdown.
+                        Con le formato exacto del json:
+                        {
+                            "question":"string",
+                            "recommendation":"string",
+                            "pros":["string","string","string"],
+                            "cons":["string","string"]
+                            "final_decision":"string"
+                        }
+                        """)
+                .user(prompt)
+                .call()
+                .entity(ArchitectEntity.class);
+    }
+
 
 }

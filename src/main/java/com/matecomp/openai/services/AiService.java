@@ -27,4 +27,8 @@ public interface AiService {
 
     CodeExplanation explainCodeTyped(String code);
 
+    ArchitectEntity expertArchitectTyped(String prompt);
+
+
+
 }
