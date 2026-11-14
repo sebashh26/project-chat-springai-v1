@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "e3738c75-7ada-4468-aef4-17a9d9d7a635",
+    "name": "AI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10706640",
+    "_collection_link": "https://go.postman.co/collection/10706640-e3738c75-7ada-4468-aef4-17a9d9d7a635?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "ai-example greeting",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/greeting?name=pepe",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "greeting"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "pepe"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example chat",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "explicame q es http en 2 lineas",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/chat",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "chat"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example chat expert",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "sabes que es la fomrula uno",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/chat-expert",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "chat-expert"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example chat generate code",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"requirement\":\"create una ventana con java swing\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/generate-code",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "generate-code"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example explain code",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "@SpringBootApplication\r\npublic class SpringaiOpenaiApplication {\r\n\r\n    public static void main(String[] args) {\r\n        SpringApplication.run(SpringaiOpenaiApplication.class, args);\r\n    }\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/explain-code",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "explain-code"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example chat format",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "que es un service en spring?",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/chat-format",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "chat-format"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example analize text",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "docker es una herramineta que pérmite empaquetar aplicaciones en contenedores... pero casi siempre falla",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/analize",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "analize"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example info city",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "docker es una herramineta que pérmite empaquetar aplicaciones en contenedores... pero casi siempre falla",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/city-info?info=Lima",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "city-info"
+          ],
+          "query": [
+            {
+              "key": "info",
+              "value": "Lima"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example classify ticktet",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "//Hola tengo un problema con mi pago, me cobraron 2 veces\r\n//quiero  saber ,mas sobrfe sus planes y precios\r\n//la aplicacion no funciona y se cae constantemente\r\n//no me funciona la pagina de loguin y puedo inicar loguin\r\nlas gafas se rompieron si ninguna razon",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/classify-type",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "classify-type"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-examplegenerate code json",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "crea un servicio en java para validar un email",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/generate-code-json",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "generate-code-json"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example code explain typed",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "Optional<CuentaBancaria> ctaBD = this.cuentaBancariaDao.findById(c.getCodigo());\r\n\t\t\tCuentaBancaria tmp = ctaBD.isPresent() ? ctaBD.get() : CuentaBancaria.builder()\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t.cliente(c.getCliente())\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t.codigo(c.getCodigo())\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t.isActivo(true)\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t.saldo(c.getSaldo())\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t.build();\r\n\r\n\t\t\tthis.cuentaBancariaDao.save(tmp);",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/explain-code-json",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "explain-code-json"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "explicame q es http en 2 lineas",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example arch expert",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/chat-metadata?prompt=diferencia entre docker y kebernetes en pocas plabras",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "chat-metadata"
+          ],
+          "query": [
+            {
+              "key": "prompt",
+              "value": "diferencia entre docker y kebernetes en pocas plabras"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ai-example get metadata",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "docker es una herramineta que pérmite empaquetar aplicaciones en contenedores... pero casi siempre falla",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/city-info?info=Lima",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "city-info"
+          ],
+          "query": [
+            {
+              "key": "info",
+              "value": "Lima"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
