@@ -5,6 +5,8 @@ import com.matecomp.openai.services.AiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 public class AiController {
@@ -69,5 +71,10 @@ public class AiController {
     @PostMapping("/expert-architect-json")
     public ArchitectEntity expertArchitect(@RequestBody String prompt) {
         return  aiServices.expertArchitectTyped(prompt);
+    }
+
+    @GetMapping("/chat-metadata")
+    public Map<String, Object> chatMetadata(@RequestParam String prompt) {
+        return  aiServices.chatMetaData(prompt);
     }
 }

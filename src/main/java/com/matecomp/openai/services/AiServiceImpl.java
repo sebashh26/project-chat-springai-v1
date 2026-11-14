@@ -2,6 +2,7 @@ package com.matecomp.openai.services;
 
 import com.matecomp.openai.model.*;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Service;
 
@@ -232,6 +233,18 @@ public class AiServiceImpl implements AiService {
                 .user(prompt)
                 .call()
                 .entity(ArchitectEntity.class);
+    }
+
+    @Override
+    public Map<String, Object> chatMetaData(String prompt) {
+        ChatResponse response = chatClient
+                .prompt()
+                .user(prompt)
+                .call()
+                .chatResponse();
+
+        return Map.of("answer", response.getResult().getOutput().getText(),
+                "metadata",response.getMetadata());
     }
 
 

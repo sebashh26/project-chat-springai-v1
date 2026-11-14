@@ -3,6 +3,8 @@ package com.matecomp.openai.services;
 import com.matecomp.openai.model.*;
 import org.springframework.cglib.core.CodeGenerationException;
 
+import java.util.Map;
+
 public interface AiService {
 
     String greeting(String name);
@@ -29,6 +31,6 @@ public interface AiService {
 
     ArchitectEntity expertArchitectTyped(String prompt);
 
-
+    Map<String, Object> chatMetaData(String prompt);
 
 }
